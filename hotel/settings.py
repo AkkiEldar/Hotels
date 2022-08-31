@@ -55,12 +55,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # third party
     'rest_framework',
+    'rest_framework.authtoken',
     'django_filters',
     'drf_yasg',
     'silk',
     # My apps
     'main_app',
     'hotels_app',
+    'authentication_app',
 ]
 
 MIDDLEWARE = [
@@ -148,6 +150,12 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+AUTH_USER_MODEL = 'authentication_app.Account'
+
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'authentication_app.serializers.AccountSerializer',
+}
+
 # jazzmin settings
 
 JAZZMIN_SETTINGS={
@@ -165,7 +173,7 @@ JAZZMIN_UI_TWEAKS = {
     "brand_small_text": False,
     "brand_colour": "navbar-purple",
     "accent": "accent-olive",
-    "navbar": "navbar-purple navbar-dark",
+    "navbar": "navbar-dark",
     "no_navbar_border": True,
     "navbar_fixed": False,
     "layout_boxed": False,
@@ -178,11 +186,11 @@ JAZZMIN_UI_TWEAKS = {
     "sidebar_nav_compact_style": True,
     "sidebar_nav_legacy_style": True,
     "sidebar_nav_flat_style": True,
-    "theme": "cosmo",
+    "theme": "darkly",
     "dark_mode_theme": "darkly",
     "button_classes": {
         "primary": "btn-primary",
-        "secondary": "btn-outline-secondary",
+        "secondary": "btn-secondary",
         "info": "btn-info",
         "warning": "btn-outline-warning",
         "danger": "btn-outline-danger",

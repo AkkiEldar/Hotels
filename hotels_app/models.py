@@ -20,6 +20,7 @@ class Hotel(models.Model):
     instagram = models.URLField(blank=True, null=True)
     contact = models.CharField(max_length=1000)
     rooms_count = models.IntegerField()
+    # rooms = models.ForeignKey(Room, on_delete=models.CASCADE)
     star = models.CharField(
         max_length=2,
         choices=STARS_CHOICES
@@ -41,13 +42,13 @@ class Room(models.Model):
     rooms = models.PositiveIntegerField(default=1)
     description = models.TextField()
     how_mach_people = models.PositiveIntegerField(default=1)
-    # hotel = models.ForeignKey(Hotel, to_fields='hotel_id', on_delete=models.CASCADE)
-    room_image = models.ImageField(upload_to="media", height_field=None, width_field=None, max_length=None, default='0.jpeg')
+    hotel = models.ForeignKey(Hotel, to_fields='hotel_id', on_delete=models.CASCADE)
+    # room_image = models.ImageField(upload_to="media", height_field=None, width_field=None, max_length=None, default='0.jpeg')
 
 
-# class RoomImage(models.Model):
-#     room = models.ForeignKey(Room, on_delete=models.CASCADE)
-#     room_image = models.ImageField(upload_to="media", height_field=None, width_field=None, max_length=None)
+class RoomImage(models.Model):
+    room = models.ForeignKey(Room, on_delete=models.CASCADE)
+    room_image = models.ImageField(upload_to="media", height_field=None, width_field=None, max_length=None)
 
 
 # class Booking(models.Model):
