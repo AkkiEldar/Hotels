@@ -42,7 +42,7 @@ class Room(models.Model):
     rooms = models.PositiveIntegerField(default=1)
     description = models.TextField()
     how_mach_people = models.PositiveIntegerField(default=1)
-    hotel = models.ForeignKey(Hotel, to_fields='hotel_id', on_delete=models.CASCADE)
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
     # room_image = models.ImageField(upload_to="media", height_field=None, width_field=None, max_length=None, default='0.jpeg')
 
 

@@ -40,8 +40,8 @@ urlpatterns = [
    re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
    re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
    path('silk/', include('silk.urls', namespace='silk')),
-   path('main/', include('main_app.urls')),
+   path('', include('main_app.urls')),
    path('hotel/', include('hotels_app.urls')),
-   path('', include('authentication_app.urls')),
+   path('registration/', include('authentication_app.urls')),
    path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
