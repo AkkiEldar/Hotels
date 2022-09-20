@@ -1,5 +1,7 @@
 from django.contrib.auth.models import User
+
 from django.db import models
+from authentication_app.models import Account
 
 
 class Hotel(models.Model):
@@ -42,7 +44,7 @@ class Room(models.Model):
     rooms = models.PositiveIntegerField(default=1)
     description = models.TextField()
     how_mach_people = models.PositiveIntegerField(default=1)
-    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, null=True, blank=True)
     # room_image = models.ImageField(upload_to="media", height_field=None, width_field=None, max_length=None, default='0.jpeg')
 
 
@@ -51,14 +53,24 @@ class RoomImage(models.Model):
     room_image = models.ImageField(upload_to="media", height_field=None, width_field=None, max_length=None)
 
 
-# class Booking(models.Model):
-#
-#     check_in = models.DateField(auto_now=False)
-#     check_out = models.DateField()
-#     room = models.ForeignKey(Room, on_delete=models.CASCADE)
-#     guest = models.ForeignKey(User, on_delete=models.CASCADE)
-#
-#     booking_id = models.CharField(max_length=100, default="null")
-#
-#     def __str__(self):
-#         return self.guest.username
+# class BookingDetails(models.Model):
+#     BOOKING_STATUS = (('A', 'Availed'),
+#                       ('B', 'Booked'),
+#                       ('C1', 'Cancelled by user'),
+#                       ('C2', 'Cancelled by hotel')
+#                       )
+#     booking_id = models.AutoField(primary_key=True)
+#     guest = models.ForeignKey(Account, to_field='user_name')
+#     hotel = models.ForeignKey(Account, to_field='hotel_id')
+#     booking_status = models.CharField(max_length=2, choices=BOOKING_STATUS)
+#     check_in_date = models.CharField(max_length=15)
+#     check_out_date = models.CharField(max_length=15)
+#     check_in_time = models.CharField(max_length=15)
+#     check_out_time = models.CharField(max_length=15)
+#     room = models.ForeignKey(Room, to_field='room_type')
+#     total_guests = models.PositiveIntegerField(default=0)
+#     total_days = models.PositiveIntegerField(default=0)
+#     total_cost = models.DecimalField(max_digits=15, decimal_places=2)
+#     discounted_price = models.DecimalField(max_digits=15, decimal_places=2)
+#     total_rooms = models.PositiveIntegerField(default=0)
+#     booking_date = models.CharField(max_length=15)

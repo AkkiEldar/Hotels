@@ -42,6 +42,6 @@ urlpatterns = [
    path('silk/', include('silk.urls', namespace='silk')),
    path('', include('main_app.urls')),
    path('hotel/', include('hotels_app.urls')),
-   path('registration/', include('authentication_app.urls')),
+   path('login/', include('authentication_app.urls')),
    path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

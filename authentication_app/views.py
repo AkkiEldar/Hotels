@@ -1,3 +1,5 @@
+from django.http import JsonResponse
+from django.shortcuts import redirect
 from rest_framework import viewsets, views
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
@@ -6,6 +8,7 @@ from drf_yasg.utils import swagger_auto_schema
 
 from authentication_app.models import Account
 from authentication_app.serializers import AccountSerializer, LoginSerializer
+from hotels_app.models import Room, Hotel
 
 
 class AccountRegisterAPIViews(views.APIView):
@@ -33,3 +36,4 @@ class LoginView(views.APIView):
             return Response('email or password incorrect')
         token = Token.objects.get(user=user)
         return Response({'token': str(token.key)})
+

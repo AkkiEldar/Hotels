@@ -2,16 +2,17 @@ from django.shortcuts import render
 
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
-from rest_framework.filters import OrderingFilter
+from rest_framework.filters import OrderingFilter, SearchFilter
 
-from main_app.models import Info, OurPartners, AboutUs , RecomendationHotels
+from main_app.models import Info, OurPartners, AboutUs, RecomendationHotels
 from main_app.serializers import InfoSerializer, OurPartnersSerializer, AboutUsSerializer, RecomendationHotelsSerializer
 
 
 class RecomendationHotelsViewSet(viewsets.ModelViewSet):
     queryset = RecomendationHotels.objects.all()
     serializer_class = RecomendationHotelsSerializer
-    filter_backends = [DjangoFilterBackend, OrderingFilter]
+    filter_backends = [DjangoFilterBackend, OrderingFilter, SearchFilter]
+    search_fields = []
 
 
 class InfoViewSet(viewsets.ModelViewSet):
