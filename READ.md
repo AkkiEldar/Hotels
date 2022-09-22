@@ -1,4 +1,4 @@
-PROJECT'S NAME: manga_universe
+PROJECT'S NAME: Hotel
 
 CLONING PROJECT:
 
