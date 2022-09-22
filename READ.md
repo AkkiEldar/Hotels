@@ -41,9 +41,9 @@ IF YOU NEED TO GO IN DJANGO ADMIN PANEL: (127.0.0.1:8000/admin/)
 
 docker ps -a
 
-YOU MUST GET A NAME yr-manga_web_1 sh
+YOU MUST GET A NAME hotel_web_1 sh
 
-NEXT: docker exec -it magazin_altynai_web_1 sh
+NEXT: docker exec -it magazin_eldar_web_1 sh
 
 AND WRITE THIS FOR CREATING SUPERUSER(ADMIN):
 
