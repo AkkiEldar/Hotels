@@ -38,5 +38,5 @@ from hotels_app.models import Hotel
 #                 'hotel': '1',
 #             }
 #         )
-#         # print(response.status_code)
+#         print(response.status_code)
 #         assert response.status_code == 201
