@@ -21,6 +21,7 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+from report_hotel.views import ReportView
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -40,6 +41,7 @@ urlpatterns = [
    re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
    re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
    path('silk/', include('silk.urls', namespace='silk')),
+   path('report/', ReportView.as_view()),
    path('', include('main_app.urls')),
    path('hotel/', include('hotels_app.urls')),
    path('login/', include('authentication_app.urls')),

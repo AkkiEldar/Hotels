@@ -1,0 +1,23 @@
+<!doctype html>
+{% load static %}
+<html>
+    <head>
+        <title>
+            {% block title %}
+                Какое то название
+            {% endblock %}
+        </title>
+        <link rel="stylesheet" href="{% static 'style.css' %}"/>
+    </head>
+
+    <body>
+        <nav>
+            <a href="/">Домой</a>
+            <a href="/hotel/">ОТЕЛИ !</a>
+            <a href="/report/">Отчёт</a>
+        </nav>
+        {% block content %}
+
+        {% endblock %}
+    </body>
+</html>
