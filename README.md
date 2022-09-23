@@ -49,7 +49,7 @@ git@github.com:AkkiEldar/Hotels.git
 
 ### Anything urls you have in dir "magazine", file "urls.py"
 
-## Tests: Dir "account_app", File "tests.py"
+## Tests: Dir "authentications_app", File "tests.py"
 
 ### 1)go to your browser and write in the search bar: 127.0.0.1:8000
 
